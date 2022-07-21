@@ -40,33 +40,38 @@ class Game {
         this.selectQuestion()
     }
     selectQuestion() {
-        if (this.count <=3) {
+        if (this.count <=5) {
             let easyQuestions = this.questions.filter((question) => question.difficulty === 'easy')
             let randomIndex = Math.floor(Math.random() * easyQuestions.length)
 
             this.currentQuestion = easyQuestions[randomIndex]
+            this.questions.splice(this.questions.indexOf(this.currentQuestion), 1)
+            
             this.ctx.font = '30px mono'
             this.ctx.fillStyle = 'white'
             this.ctx.fillText("Question No " + this.count, 50  , 50)
 
             this.printQuestion()
             this.printAnswers()
-        } else if (this.count >3 && this.count <= 6) {
+        } else if (this.count >5 && this.count <= 11) {
             let mediumQuestions = this.questions.filter((question) => question.difficulty === 'medium')
             let randomIndex = Math.floor(Math.random() * mediumQuestions.length)
 
-            this.currentQuestion = mediumQuestions[randomInde00x]
+            this.currentQuestion = mediumQuestions[randomIndex]
+            this.questions.splice(this.questions.indexOf(this.currentQuestion), 1)
+
             this.ctx.font = '30px mono'
             this.ctx.fillStyle = 'white'
             this.ctx.fillText("Question No " + this.count, 50 , 50)
 
             this.printQuestion()
             this.printAnswers()
-        } else  if(this.count >6) {
+        } else  if(this.count >11) {
             let hardQuestions = this.questions.filter((question) => question.difficulty === 'hard')
             let randomIndex = Math.floor(Math.random() * hardQuestions.length)
-
+            
             this.currentQuestion = hardQuestions[randomIndex]
+            this.questions.splice(this.questions.indexOf(this.currentQuestion), 1)
             this.ctx.font = '30px mono'
             this.ctx.fillStyle = 'white'
             this.ctx.fillText("Question No " + this.count, 50 , 50)
@@ -101,7 +106,7 @@ class Game {
 
             game.ctx.clearRect(0, 0, game.width, game.height)
             this.ctx.fillText("You are correct", 100, 300)
-                        this.ctx.fillText("You have won " + this.score*100000 + " Satoshis ", 100, 400)
+                        this.ctx.fillText("You have won " + this.score*50000 + " Satoshis ", 100, 400)
 
             this.ctx.fillText("Press N to continue to the next question", 100, 500)
 
@@ -111,7 +116,7 @@ class Game {
             
             game.ctx.clearRect(0, 0, game.width, game.height)
             this.ctx.fillText("You are correct", 100, 300)
-                                    this.ctx.fillText("You have won " + this.score*100000 + " Satoshis ", 100, 400)
+                                    this.ctx.fillText("You have won " + this.score*50000 + " Satoshis ", 100, 400)
 
             this.ctx.fillText("Press N to continue to the next question", 100, 500)
 
@@ -122,7 +127,7 @@ class Game {
             game.ctx.clearRect(0, 0, game.width, game.height)
 
             this.ctx.fillText("You are correct", 100, 300)
-                                    this.ctx.fillText("You have won " + this.score*100000 + " Satoshis ", 100, 400)
+                                    this.ctx.fillText("You have won " + this.score*50000 + " Satoshis ", 100, 400)
 
             this.ctx.fillText("Press N to continue to the next question", 100, 500)
 
@@ -132,7 +137,7 @@ class Game {
             
             game.ctx.clearRect(0, 0, game.width, game.height)
             this.ctx.fillText("You are correct", 100, 300)
-                        this.ctx.fillText("You have won " + this.score*100000 + " Satoshis ", 100, 400)
+                        this.ctx.fillText("You have won " + this.score*50000 + " Satoshis ", 100, 400)
 
             this.ctx.fillText("Press N to continue to the next question", 100, 500)
 
@@ -149,7 +154,7 @@ class Game {
             /* this.selectQuestion() */
         }
 
-        if (this.count == 11) {
+        if (this.count == 21) {
             game.ctx.clearRect(0, 0, game.width, game.height)
                     this.ctx.font = '50px mono'
         this.ctx.fillStyle = 'white'
